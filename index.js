@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
+const cors = require("cors");
 
 mongoose.connect(
     "mongodb+srv://FunSnaps:crmZuPUuK0EmoqnU@librarycluster.10bzy.mongodb.net/WebLibraryDb?retryWrites=true&w=majority"
@@ -8,6 +9,7 @@ mongoose.connect(
 
 const app = express();
 app.use(bodyparser.json());
+app.use(cors());
 
 app.use("/posts", require("./routes/post"));
 
